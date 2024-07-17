@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: #283593;
+  overflow: hidden;
+}
+
+nav {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  width: 80px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+}
+
+nav .nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-45deg);
+}
+
+.nav-container .nav-toggle,
+.nav-container span a {
+  height: 60px;
+  width: 60px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.nav-toggle {
+  font-size: 35px;
+  color: #1a237e;
+  z-index: 100;
+  cursor: pointer;
+  transform: rotate(-225deg);
+  transition: all 0.6s ease;
+}
+
+nav.open-nav .nav-toggle {
+  transform: rotate(0deg);
+}
+
+.nav-container span {
+  position: absolute;
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+
+nav.open-nav .nav-container span {
+  transform: rotate(calc(var(--i) * (360deg / 8))) translateY(120px);
+  opacity: 1;
+}
+
+.nav-container span a {
+  text-decoration: none;
+  transform: rotate(45deg);
+}
+
+.nav-container span a i {
+  font-size: 24px;
+  color: #1a237e;
+  transform: rotate(calc(var(--i) * (360deg / -8)));
+  opacity: 0.8;
+  transition: 0.2s;
+}
+
+.nav-container span a:hover i {
+  opacity: 1;
+}
